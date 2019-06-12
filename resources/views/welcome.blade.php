@@ -89,7 +89,12 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                {!! Form::label('texto', 'Ingrese nombre') !!}
+                {!! Form::text('texto')!!}<br>
+                {!! Form::label('password', 'Ingrese pasword') !!}
+                {!! Form::password('password'); !!}
             </div>
+           
         </div>
     </body>
 </html>
