@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LoginController@index')->name('login');
+Route::get('register', 'LoginController@register');
+Route::get('login', 'LoginController@login');
+//Registrar usuario nuevo
+Route::POST('registro_nuevo', 'LoginController@registro_user');
