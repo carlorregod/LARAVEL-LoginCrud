@@ -5,6 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario; //Llamada al modelo
 use App\Http\Requests\NuevoUsuarioRequest;
+use App\Http\Requests\LoginRequest;
+//Autenticación
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+use Session;
+use Redirect;
+
+
 
 class LoginController extends Controller
 {
@@ -62,5 +70,16 @@ class LoginController extends Controller
         } 
         return view('register', compact('cadena'));
 
+    }
+
+    public function ingresar(LoginRequest $request){
+        if(Auth::attempt(['user'=>$request->user, 'password'=>$request->password]))
+            return Redirect::to('main');
+        else
+        {
+            Session::flash('message-error','Usuario y/o contraseña errados. Vuelva a ingresar.');
+            return Redirect::to('login');
+        }
+            
     }
 }

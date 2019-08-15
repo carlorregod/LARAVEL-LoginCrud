@@ -2,15 +2,19 @@
 
 namespace App;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Usuario as Authenticatable;
+
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;  
+
 //Para hashear pw
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model 
+class Usuario extends Model implements AuthenticatableContract
 {
-    use Notifiable;
+    use Notifiable, Authenticatable;
     
     protected $table = 'usuarios';
 

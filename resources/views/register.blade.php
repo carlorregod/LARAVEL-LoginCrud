@@ -26,11 +26,11 @@ Registrarse
     <form action="registro_nuevo" method="POST">
         {{ csrf_field() }}
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre" required>
+    <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" required>
         <label for="correo">Correo electrónico</label>
-        <input type="email" name="correo" id="correo" required>
+    <input type="email" name="correo" id="correo" value="{{ old('correo') }}" required>
         <label for="user">Usuario</label>
-        <input type="text" name="user" id="user" required>
+    <input type="text" name="user" id="user" value="{{ old('user') }}" required>
         <label for="password">Contraseña</label>
         <input type="password" name="pass" id="pass" required>
         <label for="password_confirm">Repetir contraseña</label>
