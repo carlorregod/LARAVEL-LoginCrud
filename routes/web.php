@@ -21,3 +21,5 @@ Route::POST('registro_nuevo', 'LoginController@registro_user');
 Route::POST('ingresar', 'LoginController@ingresar');
 //Salir del sistema
 Route::post('login/logout','MainController@logout');
+//Cargatabla
+Route::get('main/cargatabla', 'MainController@cargatabla');

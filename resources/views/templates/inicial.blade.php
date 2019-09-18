@@ -14,7 +14,9 @@
             @yield('formulario-cardfooter')
         </div>
     </div>
-   
+<hr>   
+<div>@yield('body-principal')</div>
+<hr>
 @include('templates/footer')
     @yield('javascript')
 </body>

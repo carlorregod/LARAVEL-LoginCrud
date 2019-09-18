@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 //Para el logout
 use Auth;
 use Redirect;
+//Llamando al modelo
+use App\Agenda;
 
 
 class MainController extends Controller
@@ -18,7 +20,8 @@ class MainController extends Controller
 
 
     public function index(){
-        return view('main/main'); 
+        $data = Agenda::paginate(5);
+        return view('main/main', compact('data')); 
     }
 
     public function logout()
@@ -26,6 +29,15 @@ class MainController extends Controller
     	//Salida del autentificador y retorno al login
     	Auth::logout();
     	return Redirect::to('/');
+
+    }
+
+    public function cargatabla(Request $request)
+    {
+        $data = Agenda::paginate(5);
+        if ($request->ajax()) {
+            return view('main/main', compact('data'));
+        }
 
     }
 
