@@ -36,7 +36,7 @@ class MainController extends Controller
     {
         $data = Agenda::paginate(5);
         if ($request->ajax()) {
-            return view('main/main', compact('data'));
+            return $data;
         }
 
     }

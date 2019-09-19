@@ -20,7 +20,7 @@ Bienvenido al sistema
 @section('body-principal')
 
 <div id="tag_container" style="height: 200px !important;">
-<table class="table table-striped table-fixed" style="position: relative; margin: auto; align: center;  max-width: 150px;">
+<table class="table" style="position: relative; margin: auto; align: center;  max-width: 300px;">
     <thead>
       <tr>
         <th scope="col">Nombre</th>
@@ -41,7 +41,11 @@ Bienvenido al sistema
     </tbody>
     
   </table>
-  {!! $data->render() !!}
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+    {!! $data->links("pagination::bootstrap-4")  !!}
+    </ul>
+  </nav>
 </div>
 @endsection
 

@@ -33,6 +33,9 @@ function getData(page){
         type: "get",
         datatype: "html"
     }).done(function(data){
+        //Este método amerita ocultar un cuerpo del html
+        $(document.querySelector("body > hr:nth-child(4)")).hide();
+        $(document.querySelector("body > div.card.border-success.mx-auto.my-5.align-items-center")).hide();
         $("#tag_container").empty().html(data);
         location.hash = page;
     }).fail(function(jqXHR, ajaxOptions, thrownError){
